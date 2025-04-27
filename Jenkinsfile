@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'master', url: 'https://github.com/girisettyramakrishna/newproject.git'
+                git branch: 'master', url: 'https://github.com/girisettyramakrishna/ashokproject.git'
             }
         }
 
