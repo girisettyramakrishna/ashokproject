@@ -13,7 +13,7 @@ rsconnect::setAccountInfo(
 # Deploy the app
 rsconnect::deployApp(
   appDir = ".",           # Current directory where your app is
-  appName = "demand_forecasting", # Name for your app on shinyapps.io
+  appName = "demand_forecasty", # Name for your app on shinyapps.io
   account = "psmlabs"
 )
 
