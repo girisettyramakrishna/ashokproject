@@ -4,8 +4,11 @@ if (!require("rsconnect")) {
   install.packages("rsconnect", repos = "https://cloud.r-project.org/")
   library(rsconnect)
 }
+# Set environment variables to use a temporary directory
+temp_dir <- tempdir()  # Use R's temp directory
+Sys.setenv(RSCONNECT_DEPLOYMENT_RECORD_DISABLE = "true")  # Disable .dcf file creation
+Sys.setenv(RSCONNECT_SHINYAPPS_IO = temp_dir)  # Set the temp directory for deployment
 
-options(rsconnect.ignore.cache = TRUE)
 
 
 # Set account info
