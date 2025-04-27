@@ -23,5 +23,5 @@ rsconnect::deployApp(
   appName = "demand_forecasty",   
   appTitle = "DF", 
   account = "psmlabs"
-  forceupdate = TRUE
+  forceUpdate = TRUE
 )
