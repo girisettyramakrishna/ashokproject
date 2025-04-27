@@ -17,3 +17,6 @@ rsconnect::deployApp(
   account = "psmlabs"
 )
 
+
+# Optionally, print a success message
+cat("Deployment complete!")
