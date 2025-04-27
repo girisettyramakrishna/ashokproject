@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         REMOTE_USER = 'ubuntu'
-        REMOTE_HOST = '3.85.244.54'
-        REMOTE_DIR  = '/home/ubuntu/project'
+        REMOTE_HOST = '54.173.137.64'
+        REMOTE_DIR  = '/home/ubuntu/my_shiny_project'
     }
 
     stages {
