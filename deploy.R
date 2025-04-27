@@ -1,7 +1,7 @@
 
 # Load required package
 if (!require("rsconnect")) {
-  install.packages("rsconnect", repos = "https://cloud.r-project.org/"")
+  install.packages("rsconnect", repos = "https://cloud.r-project.org/")
   library(rsconnect)
 }
 
