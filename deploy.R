@@ -18,5 +18,8 @@ rsconnect::deployApp(
 )
 
 
+dir.create("rsconnect/shinyapps.io/psmlabs", recursive = TRUE, showWarnings = FALSE)
+
+
 # Optionally, print a success message
 cat("Deployment complete!")
