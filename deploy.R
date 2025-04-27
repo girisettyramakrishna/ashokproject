@@ -1,7 +1,7 @@
 
 # Load required package
 if (!require("rsconnect")) {
-  install.packages("rsconnect")
+  install.packages("rsconnect", repos = "https://cloud.r-project.org/"")
   library(rsconnect)
 }
 
@@ -23,4 +23,5 @@ rsconnect::deployApp(
   appName = "demand_forecasty",   
   appTitle = "DF", 
   account = "psmlabs"
+  forceupdate = TRUE
 )
