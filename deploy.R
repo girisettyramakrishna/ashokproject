@@ -9,6 +9,11 @@ if (!require("rsconnect")) {
 Sys.setenv(RSCONNECT_DEPLOYMENT_RECORD_DISABLE = "true")
 
 
+# Set a temporary directory for rsconnect metadata (bypass the issue with permissions)
+temp_dir <- tempdir()  # Temporary directory
+Sys.setenv(RSCONNECT_SHINYAPPS_IO = temp_dir)  # Use the temp directory for rsconnect
+
+
 # Set account info
 rsconnect::setAccountInfo(
   name = "psmlabs",
