@@ -1,6 +1,13 @@
 pipeline {
     agent any
 
+    environment {
+        DEPLOY_SERVER = '192.168.42.171'       // Set your server IP here
+        DEPLOY_USER = 'ubuntu'                 // Set your username here
+        DEPLOY_PATH = '/home/ubuntu/my_shiny_project'  // Destination path on server
+        DEPLOY_SCRIPT = '/home/ubuntu/deploy_script.sh' // Remote deploy script
+    }
+
     stages {
         stage('Checkout Source') {
             steps {
@@ -36,7 +43,7 @@ pipeline {
                     uni_error.csv \
                     univariate.R \
                     www \
-                    ubuntu@192.168.42.171:/home/ubuntu/my_shiny_project
+                    ${DEPLOY_USER}@${DEPLOY_SERVER}:${DEPLOY_PATH}
                 '''
             }
         }
@@ -44,9 +51,18 @@ pipeline {
         stage('Run Deploy Script on Remote Server') {
             steps {
                 sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@192.168.42.171 "bash /home/ubuntu/deploy_script.sh"
+                    ssh -o StrictHostKeyChecking=no ${DEPLOY_USER}@${DEPLOY_SERVER} "bash ${DEPLOY_SCRIPT}"
                 '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo ' Deployment completed successfully!'
+        }
+        failure {
+            echo ' Deployment failed!'
         }
     }
 }
