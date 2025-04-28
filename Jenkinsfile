@@ -36,7 +36,7 @@ pipeline {
                     uni_error.csv \
                     univariate.R \
                     www \
-                    ubuntu@192.168.42.231:/home/ubuntu/my_shiny_project
+                    ubuntu@192.168.42.171:/home/ubuntu/my_shiny_project
                 '''
             }
         }
@@ -44,7 +44,7 @@ pipeline {
         stage('Run Deploy Script on Remote Server') {
             steps {
                 sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@192.168.42.231 "bash /home/ubuntu/deploy_script.sh"
+                    ssh -o StrictHostKeyChecking=no ubuntu@192.168.42.171 "bash /home/ubuntu/deploy_script.sh"
                 '''
             }
         }
